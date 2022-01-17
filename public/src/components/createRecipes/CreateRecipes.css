@@ -1,0 +1,233 @@
+.create-recipes-container {
+    margin-top: 83px;
+    padding: 0 336px;
+}
+
+.create-recipes-title {
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Roboto Slab', serif;
+    color: #96BB36;
+}
+
+.create-recipes-title a {
+    width: 38px;
+    height: 38px;
+    margin-left: 10px;
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #F0972A;
+    border-radius: 50%;
+}
+
+.create-recipes-title img {
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.create-recipes-line {
+    width: 985px;
+    height: 1px;
+    background-color: #D8D8D8;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.inside-create-recipes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.left-div-recipe-img {
+    margin-top: 90px;
+}
+
+.left-div-recipe-img h4{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #F0972A;
+    font-family: 'Roboto Slab', serif;
+}
+
+.left-div-recipe-img button{
+    width: 234px;
+    height: 32px;
+    border: 1px solid #A5A5A5;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    background-color: #F8F7F2;
+    border-radius: 6px;
+    color: #A5A5A5;
+}
+
+.left-div-recipe-img img {
+    object-fit: cover;
+    width: 234px;
+    height: 147px;
+    border: 1px solid #A5A5A5;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 10px;
+}
+
+
+.middle-div {
+    margin: 90px 30px 0px 30px;
+}
+
+.recipe-title h4 {
+    font-size: 14px;
+    color: #F0972A;
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 10px;
+}
+
+.recipe-title input {
+    width: 562px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    color: #A5A5A5;
+    font-weight: bold;
+}
+
+
+.three-divs-in-a-row {
+    display: flex;
+    justify-content: space-between;
+    width: 562px;
+}
+
+.category {
+    font-size: 14px;
+    margin-top: 23px;
+    color: #F0972A;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+}
+
+.category input {
+    width: 179px;
+    height: 40px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-right: 27px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    color: #A5A5A5;
+}
+
+.prep-time {
+    font-size: 14px;
+    color: #F0972A;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 23px;
+}
+
+.prep-time input {
+    width: 165px;
+    height: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    border-radius: 6px;
+    color: #A5A5A5;
+    margin-top: 10px;
+}
+
+.numb-of-ppl {
+    font-size: 14px;
+    color: #F0972A;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 23px;
+}
+
+.numb-of-ppl input {
+    width: 165px;
+    height: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    border-radius: 6px;
+    margin-top: 10px;
+    color: #A5A5A5;
+
+}
+
+
+.short-description {
+    font-size: 14px;
+    color: #F0972A;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    margin-top: 23px;
+}
+
+.short-description textarea {
+    width: 562px;
+    height: 96px;
+    padding: 8px;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    color: #A5A5A5;
+    border-radius: 6px;
+    margin-top: 10px;
+    overflow: hidden;
+    resize: none;
+}
+
+.save-btn {
+    background-color: #96BB36;
+    color: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    width: 124px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.right-div {
+    margin-top: 89px;
+}
+
+.right-div h4 {
+    font-size: 14px;
+    color: #F0972A;
+    font-family: 'Roboto Slab', serif;
+}
+
+.right-div textarea {
+    width: 348px;
+    height: 284px;
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #A5A5A5;
+    background-color: #F0EFEA;
+    border-radius: 6px;
+    color: #A5A5A5;
+    margin-top: 10px;
+    padding: 8px;
+    overflow: hidden;
+    resize: none;
+}

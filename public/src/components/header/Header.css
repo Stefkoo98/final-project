@@ -1,0 +1,100 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    align-items: center;
+    margin-top: 52px;
+}
+
+.inline-list {
+    display: flex;
+}
+
+.inline-list li {
+    padding: 8px;
+    margin-left: 25px;
+    color: orange;
+}
+
+.inline-list li a {
+    font-weight: bold;
+    font-size: 18px;
+    color: #A5A5A5;
+    text-decoration: none;
+}
+
+.inline-list li:first-child {
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.buttons {
+    margin-left: 8%;
+}
+
+.buttons > a {
+    padding: 15px 32px;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold; 
+    border-radius: 7px;
+    border: none;
+}
+
+.buttons > a:first-child {
+    border: 1px solid #A5A5A5;
+}
+
+.buttons > a:last-child {
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.buttons span {
+    text-transform: lowercase;
+    color: orange;
+    font-weight: bold;
+    margin: 0px 10px 0px 10px;
+}
+
+.login-button {
+    background-color: #F8F7F2;
+}
+
+.login-button a {
+    color: #A5A5A5;
+    text-decoration: none;
+}
+
+.create-account-button {
+    background-color: #96BB36;
+}
+
+.create-account-button a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logged-in-buttons ul {
+    display: flex;
+    justify-content: space-between;
+    color: #626262;
+}
+
+.logged-in-buttons ul li {
+    margin-right: 25px
+}
+
+.logged-in-buttons li a {
+    text-decoration: none;
+    border-bottom: 2px solid #A5A5A5;
+    font-weight: bold;
+}
+
+.logged-in-buttons li:first-child {
+    list-style-type: none;
+}

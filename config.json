@@ -1,0 +1,44 @@
+{
+    "services": {
+        "proxy": {
+            "port": 8000
+        },
+        "auth": {
+            "port": 8001
+        },
+        "users": {
+            "port": 8002
+        },
+        "storage": {
+            "port": 8003
+        }
+    },
+    "security": {
+        "algorithms": [
+            "HS256"
+        ],
+        "secret": "secretpassword"
+    },
+    "storage": {
+        "upload_dir": "files",
+        "max_filesize": 1048576,
+        "allowed_filetypes": [
+            "image/jpg",
+            "image/jpeg",
+            "image/pjpg",
+            "image/png",
+            "image/gif"
+        ]
+    },
+    "mailer": {
+        "key": "",
+        "domain": "",
+        "default_address": "noreply@domain.com"
+    },
+    "db": {
+        "username": "Dev",
+        "dbname": "semosdb",
+        "password": "uYycauZ47Y6tW8pb",
+        "host": "cluster0.dknwn.mongodb.net"
+    }
+}
