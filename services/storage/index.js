@@ -1,3 +1,4 @@
+require('../../pkg/db');
 const config = require('../../pkg/config');
 const express = require('express');
 const fileUpload = require('express-fileupload');
@@ -12,10 +13,11 @@ api.use(jwt({
 }));
 api.use(fileUpload());
 
-api.post('/api/v1/storage', handlers.upload);
-api.get('/api/v1/storage', handlers.getFileList);
-api.get('/api/v1/storage/:filename', handlers.download);
-api.delete('/api/v1/storage/:filename', handlers.removeFile);
+api.post('/api/v1/storage/upload', handlers.upload);
+api.get('/api/v1/storage/getFileList', handlers.getFileList);
+api.post('/api/v1/storage/recipeUpload', handlers.recipeUpload)
+// api.get('/api/v1/storage/:filename/download', handlers.download);
+// api.delete('/api/v1/storage/:filename/removeFile', handlers.removeFile);
 
 api.listen(config.get('services').storage.port, err => {
     if (err) {

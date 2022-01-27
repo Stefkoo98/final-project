@@ -1,0 +1,100 @@
+.my-recipes-container {
+    margin-top: 83px;
+    padding: 0 336px;
+}
+
+.my-recipes-title {
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Roboto Slab', serif;
+    color: #96BB36;
+}
+
+.my-recipes-title a {
+    width: 38px;
+    height: 38px;
+    margin-left: 10px;
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #F0972A;
+    border-radius: 50%;
+}
+
+.my-recipes-title img {
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.my-recipes-line {
+    width: 985px;
+    height: 1px;
+    background-color: #D8D8D8;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.my-recipes-table {
+    width: 1202px;
+    margin: 51px 0px 0px 0px;
+}
+
+.thead-section {
+    color: #F0972A;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+.thead-section h4:nth-child(1) {
+    margin-left: 31px;
+}
+
+.thead-section h4:nth-child(3) {
+    margin-right: 402px;
+}
+
+.thead-section h4:nth-child(4) {
+    width: 46px;
+}
+
+
+.tbody-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
+    color: #A5A5A5;
+    margin: 5px;
+    width: 1225px;
+    height: 55px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tbody-section h4:nth-child(1) {
+    margin-left: 31px;
+}
+
+.tbody-section h4:nth-child(2) {
+    background-color: #96BB36;
+    color: #FFFFFF;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 79px;
+    height: 24px;
+    text-transform: uppercase;
+    padding: 5px 2px;
+}
+
+.tbody-section h4:nth-child(3) {
+    margin-right: 402px;
+    font-weight: 400;
+}
+
+.delete-icon {
+    margin-right: 37px;
+    height: 20px;
+    
+}

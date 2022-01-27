@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "auth": "node services/auth/index.js",
     "storage": "node services/storage/index.js",
-    "proxy": "node services/proxy/index.js"
+    "proxy": "node services/proxy/index.js",
+    "recipes": "node services/recipes/index.js"
   },
   "keywords": [],
   "author": "",

@@ -7,17 +7,17 @@ const app = express();
 
 app.use('/api/v1/auth', proxy(
     'http://localhost:8001',
-    { proxyReqPathResolver: (req) => `http://localhost:10001/api/v1/auth${req.url}` }
+    { proxyReqPathResolver: (req) => `http://localhost:8001/api/v1/auth${req.url}` }
 ));
 
 app.use('/api/v1/storage', proxy(
     'http://localhost:8003',
-    { proxyReqPathResolver: (req) => `http://localhost:10003/api/v1/storage${req.url}` }
+    { proxyReqPathResolver: (req) => `http://localhost:8003/api/v1/storage${req.url}` }
 ));
 
-app.use('/api/v1/users', proxy(
+app.use('/api/v1/recipes', proxy(
     'http://localhost:8002',
-    { proxyReqPathResolver: (req) => `http://localhost:10002/api/v1/users${req.url}` }
+    { proxyReqPathResolver: (req) => `http://localhost:8002/api/v1/recipes${req.url}` }
 ));
 
 app.use('/', proxy(
@@ -35,22 +35,3 @@ app.listen(PORT, err => {
     }
     console.log(`Server started on port ${PORT}`);
 });
-
-
-
-//                          users (8083)       \
-//                        /                     \
-//                       /
-// browser -> proxy (80) -- auth (8081)          -   DB
-//                       \
-//                        \                      /
-//                          storage (8082)      /
-
-
-
-// /api/v1/auth/... -> auth (8081)
-// /api/v1/storage/... -> storage (8082)
-// /api/v1/users/... -> users (8083)
-// ...
-
-// git bash

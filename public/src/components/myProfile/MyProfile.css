@@ -39,16 +39,23 @@
    
 }
 
+input[type="file"] {
+    display: none;
+}
+
 .change-avatar-button {
     width: 173px;
     height: 32px;
-    border: 1px solid #A5A5A5;
+    margin-top: 35px;
+    padding: 7px;
     border-radius: 6px;
+    border: 1px solid #A5A5A5;
     background-color: #F8F7F2;
     color: #A5A5A5;
+    text-align: center;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
-    margin-top: 35px;
+    font-size: 14px;
 }
 
 .sign-up-save-form form{

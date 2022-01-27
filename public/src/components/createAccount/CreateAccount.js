@@ -31,6 +31,7 @@ export function CreateAccount() {
             );
             let token = await res.text();
             localStorage.setItem('jwt', token);
+            window.location.href = "/login";
             console.log(res);
         } catch (err) {
             console.log(err);

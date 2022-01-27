@@ -1,58 +1,78 @@
+const recipe = require('../../../pkg/recipes');
+const validator = require('../../../pkg/recipes/validate');
+
 const create = async (req, res) => {
     try {
-        await validator(req.body, "CREATE");
-    } catch (error) {
-        console.log(error);
-        return res.status(400).send(error);
+        await validator(req.body);
+    } catch (err) {
+        console.log(err);
+        return res.status(400).send('Bad request');
     }
+
     try {
         let data = {
             ...req.body,
-            author_id: req.user.uid,
+            chef_id: req.user.uid
         };
-        let out = await article.create(data);
+
+        let date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        if (month <= 9) {
+            month = "0" + month;
+        }
+        if (day <= 9) {
+            day = "0" + day;
+        }
+        data.created_on = `${day}.${month}.${date.getFullYear()}`;
+        let out = await recipe.create(data);
         res.status(201).send(out);
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send("Internal server error");
+    } catch (err) {
+        console.log(err);
+        return res.status(400).send('Internal server error');
     }
 };
+
 const getAll = async (req, res) => {
     try {
-        let articles = await article.getAll();
-        return res.status(200).send(articles);
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send("Internal server error");
+        let recipes = await recipe.getAll();
+        return res.status(200).send(recipes);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal server error');
     }
 };
+
 const getMine = async (req, res) => {
     try {
-        let artilces = await article.getAllByUser(req.user.uid);
-        return res.status(200).send(artilces);
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send("Internal server error");
+        let recipes = await recipe.getAllByUser(req.user.uid);
+        return res.status(200).send(recipes);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal server error');
     }
 };
+
 const getOne = async (req, res) => {
     try {
-        let articles = await article.getOne(req.params.id);
-        return res.status(200).send(articles);
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send("Internal server error");
+        let recipes = await recipe.getOne(req.params.id);
+        return res.status(200).send(recipes);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal server error');
     }
 };
+
 const update = async (req, res) => {
     try {
-        await validator(req.body, "CREATE");
+        await validator(req.body);
     } catch (error) {
         console.log(error);
         return res.status(400).send(error);
     }
+
     try {
-        const a = await article.update(req.params.id, req.user.uid, req.body);
+        const a = await recipe.update(req.params.id, req.user.uid, req.body);
         if (!a.matchedCount) {
             return res.status(404).send("Not found");
         }
@@ -62,31 +82,11 @@ const update = async (req, res) => {
         return res.status(500).send("Internal server error");
     }
 };
-const patrialUpdate = async (req, res) => {
-    try {
-        await validator(req.body, "INSERT");
-    } catch (error) {
-        console.log(error);
-        return res.status(400).send(error);
-    }
-    try {
-        const a = await article.partialUpdate(
-            req.params.id,
-            req.user.uid,
-            req.body
-        );
-        if (!a.matchedCount) {
-            return res.status(404).send("Not found");
-        }
-        return res.status(204).send();
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send("Internal server error");
-    }
-};
+
 const remove = async (req, res) => {
     try {
-        const a = await article.remove(req.params.id, req.user.uid);
+        const a = await recipe.remove(req.params.id, req.user.uid);
+
         if (!a.deletedCount) {
             return res.status(404).send("Not found");
         }
@@ -96,12 +96,12 @@ const remove = async (req, res) => {
         return res.status(500).send("Internal server error");
     }
 };
+
 module.exports = {
     create,
     getAll,
     getMine,
     getOne,
     update,
-    patrialUpdate,
-    remove,
+    remove
 };

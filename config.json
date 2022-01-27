@@ -6,11 +6,11 @@
         "auth": {
             "port": 8001
         },
-        "users": {
-            "port": 8002
-        },
         "storage": {
             "port": 8003
+        },
+        "recipes": {
+            "port": 8002
         }
     },
     "security": {
@@ -29,11 +29,6 @@
             "image/png",
             "image/gif"
         ]
-    },
-    "mailer": {
-        "key": "",
-        "domain": "",
-        "default_address": "noreply@domain.com"
     },
     "db": {
         "username": "Dev",

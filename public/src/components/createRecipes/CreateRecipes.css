@@ -25,7 +25,7 @@
     padding: 5px;
 }
 
-.create-recipes-line {
+.my-recipes-line {
     width: 985px;
     height: 1px;
     background-color: #D8D8D8;
@@ -42,6 +42,8 @@
 
 
 .left-div-recipe-img {
+    display: flex;
+    flex-direction: column;
     margin-top: 90px;
 }
 
@@ -52,25 +54,31 @@
     font-family: 'Roboto Slab', serif;
 }
 
-.left-div-recipe-img button{
-    width: 234px;
-    height: 32px;
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-recipe-button {
+    padding: 7px;
     border: 1px solid #A5A5A5;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     background-color: #F8F7F2;
     border-radius: 6px;
+    font-size: 14px;
     color: #A5A5A5;
+    text-align: center;
 }
 
 .left-div-recipe-img img {
     object-fit: cover;
     width: 234px;
     height: 147px;
-    border: 1px solid #A5A5A5;
-    border-radius: 5px;
-    box-shadow: 0px 3px 6px #00000029;
     margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #A5A5A5;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 

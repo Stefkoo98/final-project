@@ -129,14 +129,3 @@ module.exports = {
     getUser,
     updateUser
 };
-
-/*
-
-JSON WEB Token (JWT)
-
-header.payload.signature
-
-+.2,5.7
-
-
-*/
