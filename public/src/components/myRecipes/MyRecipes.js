@@ -65,12 +65,14 @@ export function MyRecipes() {
                 <div>
                     {recipes.length > 0 && recipes.map((recipe, i) => {
                         return (
-                            <div className='tbody-section' key={i}>
-                                <h4>{recipe.recipe_title}</h4>
-                                <h4>{recipe.category}</h4>
-                                <h4>{recipe.created_on}</h4>
-                                <img src={deleteIcon} className='delete-icon' alt='trashcan' onClick={() => { removeRecipe(recipe._id); deleteRecipe(recipe._id) }} />
-                            </div>
+                            <Link to={`update-recipe/${recipe._id}`}>
+                                <div className='tbody-section' key={i}>
+                                    <h4>{recipe.recipe_title}</h4>
+                                    <h4>{recipe.category}</h4>
+                                    <h4>{recipe.created_on}</h4>
+                                    <img src={deleteIcon} className='delete-icon' alt='trashcan' onClick={() => { removeRecipe(recipe._id); deleteRecipe(recipe._id) }} />
+                                </div>
+                            </Link>
                         )
                     })}
                 </div>

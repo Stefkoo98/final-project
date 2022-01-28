@@ -32,12 +32,16 @@ const getAll = async () => {
     return await Recipes.find({});
 };
 
-const update = async (id, data, uid) => {
-    return await Recipes.updateOne({ _id: id, chef_id: uid }, data);
+const update = async (id, chef_id, data) => {
+    return await Recipes.updateOne({ _id: id, chef_id: chef_id }, data);
 };
 
 const remove = async (id, uid) => {
     return await Recipes.deleteOne({ _id: id, chef_id: uid });
+};
+
+const getByCategory = async (recipeCategory) => {
+    return await Recipes.find({ category: recipeCategory })
 };
 
 module.exports = {
@@ -46,5 +50,6 @@ module.exports = {
     getAllByUser,
     getAll,
     update,
-    remove
+    remove,
+    getByCategory
 };

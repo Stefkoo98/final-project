@@ -19,8 +19,6 @@ const AccountUpdate = {
     last_name: 'minLength:4',
     email: 'email',
     birthday: 'string',
-    // password: '',
-    // repeat_password: ''
 }
 
 const validate = async (data, schema) => {

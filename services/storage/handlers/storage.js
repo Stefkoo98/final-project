@@ -63,7 +63,7 @@ const recipeUpload = async (req, res) => {
 };
 
 const download = async (req, res) => {
-    let userDir = `avatar_${req.user.uid}`;
+    let userDir = `avatar_${req.body.userUId}`;
     let userDirPath = `${__dirname}/../../../${cfgApp.upload_dir}/${userDir}`;
     let filePath = `${userDirPath}/${req.params.filename}`;
 
