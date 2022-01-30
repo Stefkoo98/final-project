@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import goBack from '../../assets/icon_back_white.svg';
 import meal from '../../assets/healthy-food.jpg';
-// import './CreateRecipes.css';
+import './UpdateRecipes.css';
 
 export function UpdateRecipes() {
 
@@ -28,7 +28,7 @@ export function UpdateRecipes() {
     const getRecipeData = async () => {
         try {
             let res = await fetch(
-                `http://localhost:8000/api/v1/recipes/getone/${id}`,
+                `http://localhost:8000/api/v1/recipes/get-one/${id}`,
                 {
                     method: 'GET',
                     headers: {
@@ -76,7 +76,7 @@ export function UpdateRecipes() {
         formData.append("recipeId", userId);
         try {
             await fetch(
-                `http://localhost:8000/api/v1/storage/recipeUpload`,
+                `http://localhost:8000/api/v1/storage/recipe-upload`,
                 {
                     method: 'POST',
                     headers: {
@@ -99,7 +99,7 @@ export function UpdateRecipes() {
             <div className='create-recipes-title'>
                 <h1>My Recipes</h1>
                 <div className='my-recipes-line'></div>
-                <Link to='add-recipes'><img src={goBack}></img></Link>
+                <Link to='my-recipes'><img src={goBack}></img></Link>
             </div>
             <div className='inside-create-recipes'>
                 <div className='left-div-recipe-img'>

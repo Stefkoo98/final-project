@@ -55,7 +55,7 @@ export function CreateRecipes() {
         formData.append("recipeId", userId);
         try {
             await fetch(
-                `http://localhost:8000/api/v1/storage/recipeUpload`,
+                `http://localhost:8000/api/v1/storage/recipe-upload`,
                 {
                     method: 'POST',
                     headers: {

@@ -1,6 +1,7 @@
 .my-recipes-container {
     margin-top: 83px;
     padding: 0 336px;
+    margin-bottom: 280px;
 }
 
 .my-recipes-title {
@@ -65,7 +66,6 @@
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
     background-color: #FFFFFF;
-    color: #A5A5A5;
     margin: 5px;
     width: 1225px;
     height: 55px;
@@ -73,11 +73,12 @@
     border-radius: 5px;
 }
 
-.tbody-section h4:nth-child(1) {
+.tbody-section a:nth-child(1) {
     margin-left: 31px;
+    color: #A5A5A5;
 }
 
-.tbody-section h4:nth-child(2) {
+.tbody-section a:nth-child(2) {
     background-color: #96BB36;
     color: #FFFFFF;
     font-size: 12px;
@@ -85,12 +86,17 @@
     width: 79px;
     height: 24px;
     text-transform: uppercase;
-    padding: 5px 2px;
+    padding: 5px;
 }
 
-.tbody-section h4:nth-child(3) {
+.tbody-section a {
+    text-decoration: none;
+}
+
+.tbody-section a:nth-child(3) {
     margin-right: 402px;
-    font-weight: 400;
+    color: #A5A5A5;
+    font-weight: 300;
 }
 
 .delete-icon {

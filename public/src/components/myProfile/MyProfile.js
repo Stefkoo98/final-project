@@ -10,6 +10,7 @@ export function MyProfile() {
         last_name: '',
         email: '',
         birthday: '',
+        avatar: ''
     };
 
     const userId = localStorage.getItem('id');
@@ -49,7 +50,7 @@ export function MyProfile() {
 
         formData.append("userUId", userId);
         try {
-            await fetch(
+            let res = await fetch(
                 `http://localhost:8000/api/v1/storage/upload`,
                 {
                     method: 'POST',
@@ -59,6 +60,8 @@ export function MyProfile() {
                     body: formData
                 }
             );
+            let data = await res.json();
+            account.avatar = data.filename;
         } catch (err) {
             console.log(err);
         }
@@ -93,7 +96,7 @@ export function MyProfile() {
         getUserData()
     }, []);
 
-
+    console.log(account)
     return (
         <div className='my-profile-container'>
             <div className='my-profile-title'>
@@ -102,7 +105,8 @@ export function MyProfile() {
             </div>
             <div className='inside-my-profile'>
                 <div className='left'>
-                    <img src={avatar ? URL.createObjectURL(avatar) : Avatar} alt='batman-avatar'></img>
+                    <img src={account.avatar ? `/api/v1/storage/users/${account.avatar}` : Avatar} />
+                    {/* <img src={avatar ? URL.createObjectURL(avatar) : Avatar} alt='batman-avatar'></img> */}
                     <label className='change-avatar-button'>
                         <input type='file' onChange={onFileUpload} />
                         Change Avatar

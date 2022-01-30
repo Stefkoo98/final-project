@@ -55,7 +55,8 @@ const getUser = async (req, res) => {
             first_name: u.first_name,
             last_name: u.last_name,
             email: u.email,
-            birthday: u.birthday
+            birthday: u.birthday,
+            avatar: u.avatar
         }
         return res.status(200).send(JSON.stringify(userData));
     } catch (err) {
@@ -74,6 +75,7 @@ const createAccount = async (req, res) => {
     try {
         let data = req.body;
         data.password = bcrypt.hashSync(data.password);
+        data.avatar = ''
         let u = await user.create(data);
         return res.status(201).send(u);
     } catch (err) {
@@ -83,14 +85,6 @@ const createAccount = async (req, res) => {
         }
         return res.status(500).send('Internal server error');
     }
-};
-
-const forgotPassword = (req, res) => {
-    res.send('ok');
-};
-
-const resetPassword = (req, res) => {
-    res.send('ok');
 };
 
 const renew = (req, res) => {
@@ -123,8 +117,6 @@ module.exports = {
     login,
     validate,
     createAccount,
-    forgotPassword,
-    resetPassword,
     renew,
     getUser,
     updateUser

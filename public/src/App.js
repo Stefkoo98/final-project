@@ -2,6 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Header } from './components/header/Header';
 import { MainPage } from './components/mainPage/MainPage';
+import { Breakfast } from './components/allRecipes/Breakfast';
+import { Brunch } from './components/allRecipes/Brunch';
+import { Dinner } from './components/allRecipes/Dinner';
+import { Lunch } from './components/allRecipes/Lunch'
 import { Footer } from './components/footer/Footer';
 import { Login } from './components/login/Login';
 import { CreateAccount } from './components/createAccount/CreateAccount';
@@ -17,10 +21,13 @@ export function App() {
       <Header />
       <Switch>
         <Route path='/' exact component={MainPage} />
-        <Route path='/login' component={Login} />
         <Route path='/create-account' component={CreateAccount} />
         <Route path='/login' component={Login} />
         <Route path='/my-profile' component={MyProfile} />
+        <Route path='/breakfast' component={Breakfast} />
+        <Route path='/brunch' component={Brunch} />
+        <Route path='/dinner' component={Dinner} />
+        <Route path='/lunch' component={Lunch} />
         <Route path='/my-recipes' component={CreateRecipes} />
         <Route path='/add-recipes' component={MyRecipes} />
         <Route path='/update-recipe/:id' component={UpdateRecipes} />

@@ -21,8 +21,6 @@ api.post('/api/v1/auth/login', handlers.login);
 api.get('/api/v1/auth/validate', handlers.validate);
 api.get('/api/v1/auth/renew-jwt', handlers.renew);
 api.post('/api/v1/auth/create-account', handlers.createAccount);
-api.post('/api/v1/auth/forot-password', handlers.forgotPassword);
-api.post('/api/v1/auth/reset-password', handlers.resetPassword);
 api.get('/api/v1/auth/:id', handlers.getUser);
 api.patch('/api/v1/auth/:id', handlers.updateUser);
 

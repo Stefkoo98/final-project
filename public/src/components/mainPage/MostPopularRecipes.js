@@ -13,7 +13,7 @@ export function MostPopularRecipes() {
 
     const getRecipe = async () => {
         try {
-            const res = await fetch("/api/v1/recipes/getmine", {
+            const res = await fetch("/api/v1/recipes/get-all", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",

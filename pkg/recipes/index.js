@@ -10,7 +10,8 @@ const Recipes = mongoose.model(
         short_description: String,
         recipe: String,
         chef_id: String,
-        created_on: String
+        created_on: String,
+        likes: Number
     },
     'recipes'
 );
@@ -44,6 +45,14 @@ const getByCategory = async (recipeCategory) => {
     return await Recipes.find({ category: recipeCategory })
 };
 
+const addLike = async (id) => {
+    return await Recipes.findOneAndUpdate({ _id: id }, { $inc: { likes: 1 } });
+}
+
+const removeLike = async (id) => {
+    return await Recipes.findOneAndUpdate({ _id: id }, { $inc: { likes: -1 } });
+}
+
 module.exports = {
     create,
     getOne,
@@ -51,5 +60,7 @@ module.exports = {
     getAll,
     update,
     remove,
-    getByCategory
+    getByCategory,
+    addLike,
+    removeLike
 };

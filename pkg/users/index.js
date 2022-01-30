@@ -11,7 +11,8 @@ const User = mongoose.model(
         },
         birthday: String,
         password: String,
-        repeat_password: String 
+        repeat_password: String,
+        avatar: String
     },
     'users'
 );

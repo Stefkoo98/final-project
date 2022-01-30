@@ -13,7 +13,7 @@ export function FreshAndNew() {
 
     const getRecipe = async () => {
         try {
-            const res = await fetch("/api/v1/recipes/getmine", {
+            const res = await fetch("/api/v1/recipes/get-all", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",
@@ -26,6 +26,23 @@ export function FreshAndNew() {
             console.log(error);
         }
     }
+
+    // const likeMeal = async (id) => {
+    //     try {
+    //         const res = await fetch(`/api/v1/recipes/${id}/like`, {
+    //             method: "GET",
+    //             headers: {
+    //                 "Content-type": "application/json",
+    //                 "Authorization": `Bearer ${token}`
+    //             },
+    //         })
+    //         let data = await res.json();
+    //         setMeals(data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
     useEffect(() => {
         getRecipe()
     }, []);
@@ -54,7 +71,7 @@ export function FreshAndNew() {
                                         <img src={dinnerPlate} alt='dinner-plate' />
                                         <h3>{meal.no_people} persons</h3>
                                         <img src={starLikes} alt='star' />
-                                        <h3>28</h3>
+                                        <h3>{meal.likes}</h3>
                                     </div>
                                     <div className='pop-up-arrow'>
                                         <img src={popUpArrow} alt='arrows' />

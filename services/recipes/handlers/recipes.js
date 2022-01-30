@@ -25,6 +25,7 @@ const create = async (req, res) => {
             day = "0" + day;
         }
         data.created_on = `${day}.${month}.${date.getFullYear()}`;
+        data.likes = 0;
         let out = await recipe.create(data);
         res.status(201).send(out);
     } catch (err) {
@@ -97,11 +98,46 @@ const remove = async (req, res) => {
     }
 };
 
+const getCategory = async (req, res) => {
+    try {
+        const recipes = await recipe.getByCategory(req.params.category);
+        res.status(200).send(recipes)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(error)
+    }
+
+};
+
+
+const addLike = async (req, res) => {
+    try {
+        await recipe.addLike(req.params.id);
+        res.status(200).send();
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send("Internal server error");
+    }
+}
+
+const removeLike = async (req, res) => {
+    try {
+        await recipe.removeLike(req.params.id);
+        res.status(200).send();
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send("Internal server error");
+    }
+}
+
 module.exports = {
     create,
     getAll,
     getMine,
     getOne,
     update,
-    remove
+    remove,
+    addLike,
+    removeLike,
+    getCategory
 };
