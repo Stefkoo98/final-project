@@ -113,11 +113,29 @@ const updateUser = async (req, res) => {
     }
 }
 
+const updateAvatar = async (req, res) => {
+    try {
+        await validator(req.body, 'AVATAR');
+    } catch (err) {
+        console.log(err)
+        return res.status(400).send('Bad request');
+    }
+
+    try {
+        await user.updateAvatar(req.user.uid, req.body.avatar);
+        return res.status(200).send('ok');
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send(err);
+    }
+}
+
 module.exports = {
     login,
     validate,
     createAccount,
     renew,
     getUser,
-    updateUser
+    updateUser,
+    updateAvatar
 };

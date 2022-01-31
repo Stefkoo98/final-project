@@ -24,11 +24,9 @@ api.get('/api/v1/recipes/get-all', handlers.getAll);
 api.get('/api/v1/recipes/get-mine', handlers.getMine);
 api.get('/api/v1/recipes/get-one/:id', handlers.getOne);
 api.put('/api/v1/recipes/:id', handlers.getOne);
-api.patch('/api/v1/recipes/:id', handlers.update)
+api.patch('/api/v1/recipes/update/:id', handlers.update)
 api.delete('/api/v1/recipes/remove/:id', handlers.remove);
 api.get('/api/v1/recipes/category/:category', handlers.getCategory);
-api.patch('/api/v1/recipes/:id/like', handlers.addLike);
-api.patch('/api/v1/recipes/:id/remove-like', handlers.removeLike);
 
 api.listen(config.get('services').recipes.port, err => {
     if (err) {

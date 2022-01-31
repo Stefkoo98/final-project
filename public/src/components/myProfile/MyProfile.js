@@ -34,10 +34,47 @@ export function MyProfile() {
             let result = await res.text();
             const userDataResult = JSON.parse(result);
             setAccount(userDataResult);
+
+            try {
+                let res = await fetch(
+                    `http://localhost:8000/api/v1/storage/users/${userDataResult.avatar}`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ userUid: userId })
+                    }
+                );
+                let result1 = await res.arrayBuffer();
+                setAvatar(new Blob([result1]));
+            } catch (err) {
+                console.log(err);
+            }
+
         } catch (err) {
             console.log(err);
         }
     };
+
+    const updateAvatar = async () => {
+        try {
+            await fetch(
+                `http://localhost:8000/api/v1/auth/${userId}/avatar`,
+                {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ avatar: account.avatar })
+                }
+            );
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     const onFileUpload = async (event) => {
         setAvatar(event.target.files[0])
@@ -48,7 +85,7 @@ export function MyProfile() {
             event.target.files[0].name
         );
 
-        formData.append("userUId", userId);
+        formData.append("userUid", userId);
         try {
             let res = await fetch(
                 `http://localhost:8000/api/v1/storage/upload`,
@@ -62,6 +99,8 @@ export function MyProfile() {
             );
             let data = await res.json();
             account.avatar = data.filename;
+
+            updateAvatar();
         } catch (err) {
             console.log(err);
         }
@@ -72,7 +111,6 @@ export function MyProfile() {
         setAccount({ ...account, [e.target.name]: e.target.value });
         console.log(e.target.value)
     };
-
 
     const updateUser = async () => {
         try {
@@ -96,7 +134,6 @@ export function MyProfile() {
         getUserData()
     }, []);
 
-    console.log(account)
     return (
         <div className='my-profile-container'>
             <div className='my-profile-title'>
@@ -105,8 +142,7 @@ export function MyProfile() {
             </div>
             <div className='inside-my-profile'>
                 <div className='left'>
-                    <img src={account.avatar ? `/api/v1/storage/users/${account.avatar}` : Avatar} />
-                    {/* <img src={avatar ? URL.createObjectURL(avatar) : Avatar} alt='batman-avatar'></img> */}
+                    <img src={avatar ? window.URL.createObjectURL(avatar) : Avatar} alt='batman-avatar'></img>
                     <label className='change-avatar-button'>
                         <input type='file' onChange={onFileUpload} />
                         Change Avatar

@@ -22,7 +22,7 @@ api.use(fileUpload());
 api.post('/api/v1/storage/upload', handlers.upload);
 api.get('/api/v1/storage/get-file-list', handlers.getFileList);
 api.post('/api/v1/storage/recipe-upload', handlers.recipeUpload)
-api.get('/api/v1/storage/users/:filename', handlers.download);
+api.post('/api/v1/storage/users/:filename', handlers.download);
 api.delete('/api/v1/storage/:filename/remove-file', handlers.removeFile);
 
 api.listen(config.get('services').storage.port, err => {

@@ -11,7 +11,11 @@ const Recipes = mongoose.model(
         recipe: String,
         chef_id: String,
         created_on: String,
-        likes: Number
+        likes: {
+            type: Number,
+            default: 0,
+        },
+        usersLikes: [Number]
     },
     'recipes'
 );
@@ -42,16 +46,9 @@ const remove = async (id, uid) => {
 };
 
 const getByCategory = async (recipeCategory) => {
-    return await Recipes.find({ category: recipeCategory })
+    return await Recipes.find({ category: new RegExp(`^${recipeCategory}$`, 'i') })
 };
 
-const addLike = async (id) => {
-    return await Recipes.findOneAndUpdate({ _id: id }, { $inc: { likes: 1 } });
-}
-
-const removeLike = async (id) => {
-    return await Recipes.findOneAndUpdate({ _id: id }, { $inc: { likes: -1 } });
-}
 
 module.exports = {
     create,
@@ -61,6 +58,4 @@ module.exports = {
     update,
     remove,
     getByCategory,
-    addLike,
-    removeLike
 };

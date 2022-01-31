@@ -11,7 +11,7 @@ export function MostPopularRecipes() {
     const [meals, setMeals] = useState([]);
     const token = localStorage.getItem("jwt");
 
-    const getRecipe = async () => {
+    const getRecipes = async () => {
         try {
             const res = await fetch("/api/v1/recipes/get-all", {
                 method: "GET",
@@ -26,8 +26,56 @@ export function MostPopularRecipes() {
             console.log(error);
         }
     }
+
+    const getRecipe = async (id) => {
+        try {
+            const res = await fetch(`/api/v1/recipes/get-one/${id}`, {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+            let data = await res.json();
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const saveLikes = async (recipeId, recipe) => {
+        try {
+            recipe.likes += 1;
+            let res = await fetch(
+                `http://localhost:8000/api/v1/recipes/update/${recipeId}`,
+                {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-type': 'application/json',
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify(recipe)
+                }
+            );
+            console.log(res);
+            return true;
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const onClickLike = async (event) => {
+        let numberlikes = document.getElementById(event.target.id).nextSibling.innerHTML;
+        let parsedlikes = parseInt(numberlikes);
+        parsedlikes += 1;
+        let recipe = await getRecipe(event.target.id);
+        let result = await saveLikes(event.target.id, recipe);
+        if (result) {
+            document.getElementById(event.target.id).nextSibling.innerHTML = parsedlikes;
+        }
+    };
     useEffect(() => {
-        getRecipe()
+        getRecipes()
     }, []);
 
     return (

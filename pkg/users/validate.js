@@ -19,7 +19,11 @@ const AccountUpdate = {
     last_name: 'minLength:4',
     email: 'email',
     birthday: 'string',
-}
+};
+
+const UpdateAvatar = {
+    avatar: 'required'
+};
 
 const validate = async (data, schema) => {
     let sch;
@@ -32,6 +36,9 @@ const validate = async (data, schema) => {
             break;
         case 'UPDATE':
             sch = AccountUpdate;
+            break;
+        case 'AVATAR':
+            sch = UpdateAvatar;
             break;
     }
     let v = new Validator(data, sch);

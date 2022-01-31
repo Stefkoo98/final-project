@@ -42,11 +42,16 @@ const remove = async (id) => {
     return await User.deleteOne({ _id: id });
 };
 
+const updateAvatar = async (id, avatar) => {
+    return await User.findOneAndUpdate({ _id: id }, { $set: { avatar: avatar } })
+}
+
 module.exports = {
     create,
     getByID,
     getByEmail,
     getAll,
     update,
-    remove
+    remove,
+    updateAvatar
 };

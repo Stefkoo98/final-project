@@ -48,7 +48,7 @@ export function UpdateRecipes() {
     const updateRecipe = async () => {
         try {
             let res = await fetch(
-                `http://localhost:8000/api/v1/recipes/${id}`,
+                `http://localhost:8000/api/v1/recipes/update/${id}`,
                 {
                     method: 'PATCH',
                     headers: {

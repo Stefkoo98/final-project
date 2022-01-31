@@ -14,7 +14,7 @@ const upload = async (req, res) => {
         return res.status(400).send('Filetype not allowed');
     }
 
-    let userDir = `avatar_${req.body.userUId}`;
+    let userDir = `avatar_${req.body.userUid}`;
     let userDirPath = `${__dirname}/../../../${cfgApp.upload_dir}/${userDir}`;
 
     if (!fs.existsSync(userDirPath)) {
@@ -43,7 +43,7 @@ const recipeUpload = async (req, res) => {
         return res.status(400).send('Filetype not allowed');
     }
 
-    let userDir = `recipes_${req.body.recipeId}`;
+    let userDir = `recipes`;
     let userDirPath = `${__dirname}/../../../${cfgApp.upload_dir}/${userDir}`;
 
     if (!fs.existsSync(userDirPath)) {
@@ -63,7 +63,7 @@ const recipeUpload = async (req, res) => {
 };
 
 const download = async (req, res) => {
-    let userDir = `avatar_${req.body.userUId}`;
+    let userDir = `avatar_${req.body.userUid}`;
     let userDirPath = `${__dirname}/../../../${cfgApp.upload_dir}/${userDir}`;
     let filePath = `${userDirPath}/${req.params.filename}`;
 

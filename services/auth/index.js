@@ -23,6 +23,7 @@ api.get('/api/v1/auth/renew-jwt', handlers.renew);
 api.post('/api/v1/auth/create-account', handlers.createAccount);
 api.get('/api/v1/auth/:id', handlers.getUser);
 api.patch('/api/v1/auth/:id', handlers.updateUser);
+api.patch('/api/v1/auth/:id/avatar', handlers.updateAvatar)
 
 api.listen(config.get('services').auth.port, err => {
     if (err) {

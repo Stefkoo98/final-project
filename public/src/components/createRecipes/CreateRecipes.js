@@ -79,7 +79,7 @@ export function CreateRecipes() {
             <div className='inside-create-recipes'>
                 <div className='left-div-recipe-img'>
                     <h4>Recipe Image</h4>
-                    <img src={uploadImg ? URL.createObjectURL(uploadImg) : meal}></img>
+                    <img src={uploadImg ? window.URL.createObjectURL(uploadImg) : meal}></img>
                     <label className='upload-recipe-button'>
                         <input type='file' onChange={onRecipeUpload} />
                         Upload Image

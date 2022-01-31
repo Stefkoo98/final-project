@@ -11,7 +11,7 @@ export function FreshAndNew() {
     const [meals, setMeals] = useState([]);
     const token = localStorage.getItem("jwt");
 
-    const getRecipe = async () => {
+    const getRecipes = async () => {
         try {
             const res = await fetch("/api/v1/recipes/get-all", {
                 method: "GET",
@@ -27,24 +27,9 @@ export function FreshAndNew() {
         }
     }
 
-    // const likeMeal = async (id) => {
-    //     try {
-    //         const res = await fetch(`/api/v1/recipes/${id}/like`, {
-    //             method: "GET",
-    //             headers: {
-    //                 "Content-type": "application/json",
-    //                 "Authorization": `Bearer ${token}`
-    //             },
-    //         })
-    //         let data = await res.json();
-    //         setMeals(data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     useEffect(() => {
-        getRecipe()
+        getRecipes()
     }, []);
 
     return (
