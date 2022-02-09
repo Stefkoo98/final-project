@@ -36,11 +36,11 @@
     border: 1px solid #D8D8D8;
     border-radius: 5px;
     margin-bottom: 56px;
+    cursor: pointer;
+
 }
 .meal-img {
     position: relative;
-    /* text-align: center;
-    color: white; */
 }
 
 .meal-img img {

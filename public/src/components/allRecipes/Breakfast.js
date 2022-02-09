@@ -4,6 +4,7 @@ import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
 import popUpArrow from '../../assets/icon_arrows_white.svg';
+import { PopUp } from '../popUp/PopUp';
 import './AllRecipes.css';
 
 

@@ -4,11 +4,13 @@ import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
 import popUpArrow from '../../assets/icon_arrows_white.svg';
+import { PopUp } from '../popUp/PopUp';
 import './MainPage.css';
 
 export function MostPopularRecipes() {
 
     const [meals, setMeals] = useState([]);
+    const [openPopUp, setOpenPopUp] = useState(false);
     const token = localStorage.getItem("jwt");
 
     const getRecipes = async () => {
@@ -74,6 +76,11 @@ export function MostPopularRecipes() {
             document.getElementById(event.target.id).nextSibling.innerHTML = parsedlikes;
         }
     };
+
+    const togglePopUp = () => {
+        setOpenPopUp(!openPopUp)
+    }
+
     useEffect(() => {
         getRecipes()
     }, []);
@@ -84,11 +91,11 @@ export function MostPopularRecipes() {
                 <h1>Most Popular Recipes</h1>
                 <div className='most-popular-recipes-line'></div>
             </div>
-            <div className='meals-section' >
-                {meals.length > 0 && meals.map((meal, i) => {
+            <div className='meals-section'>
+                {meals.sort((min, max) => { return max.likes - min.likes }).map((meal, i) => {
                     return <>
                         <div className='meals-container' key={i}>
-                            <div className='meal-img'>
+                            <div className='meal-img' >
                                 <img src={dinnerImg} alt='meal' />
                                 <h4>{meal.category}</h4>
                             </div>
@@ -101,10 +108,14 @@ export function MostPopularRecipes() {
                                         <h3>{meal.preparation_time} min</h3>
                                         <img src={dinnerPlate} alt='dinner-plate' />
                                         <h3>{meal.no_people} persons</h3>
-                                        <img src={starLikes} alt='star' />
-                                        <h3>28</h3>
+                                        <img src={starLikes} alt='star' id={meal._id} onClick={onClickLike} />
+                                        <h3 id='likescounter'>{meal.likes}</h3>
                                     </div>
-                                    <div className='pop-up-arrow'>
+                                    <div className='pop-up-arrow' onClick={togglePopUp}>
+                                        {openPopUp && <PopUp
+                                            closePopUp={togglePopUp}
+                                            id={meal._id}
+                                        />}
                                         <img src={popUpArrow} alt='arrows' />
                                     </div>
                                 </div>

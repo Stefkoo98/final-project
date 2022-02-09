@@ -13,6 +13,7 @@ import { MyProfile } from './components/myProfile/MyProfile';
 import { CreateRecipes } from './components/createRecipes/CreateRecipes';
 import { MyRecipes } from './components/myRecipes/MyRecipes';
 import { UpdateRecipes } from './components/updateRecipes/UpdateRecipes';
+import { PopUp } from './components/popUp/PopUp';
 import './css/global.css'
 
 export function App() {
@@ -31,6 +32,7 @@ export function App() {
         <Route path='/my-recipes' component={CreateRecipes} />
         <Route path='/add-recipes' component={MyRecipes} />
         <Route path='/update-recipe/:id' component={UpdateRecipes} />
+        <Route path='/pop-up' component={PopUp} />
       </Switch>
       <Footer />
     </main>

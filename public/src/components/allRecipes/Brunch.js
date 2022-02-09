@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import dinnerImg from '../../assets/healthy-food.jpg';
+import healthyMeal from '../../assets/healthy-meal.jpg';
 import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
 import popUpArrow from '../../assets/icon_arrows_white.svg';
+import { PopUp } from '../popUp/PopUp';
 import './AllRecipes.css';
 
 export function Brunch() {
 
     const [meals, setMeals] = useState([]);
     const token = localStorage.getItem('jwt');
-
 
     const getRecipes = async () => {
         try {
@@ -22,6 +22,21 @@ export function Brunch() {
             console.log(error);
         }
     }
+    const getRecipe = async (id) => {
+        try {
+            const res = await fetch(`/api/v1/recipes/get-one/${id}`, {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+            let data = await res.json();
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const saveLikes = async (recipeId, recipe) => {
         try {
@@ -65,12 +80,12 @@ export function Brunch() {
                 <h1>Brunch</h1>
                 <div className='brunch-line'></div>
             </div>
-            <div className='meals-section' >
-                {meals.length > 0 && meals.map((meal, i) => {
+            <div className='meals-section'  >
+                {meals.length > 0 && meals.sort((min, max) => { return max.likes - min.likes }).map((meal, i) => {
                     return <>
                         <div className='meals-container' key={i}>
                             <div className='meal-img'>
-                                <img src={dinnerImg} alt='meal' />
+                                <img src={healthyMeal} alt='meal' />
                                 <h4>{meal.category}</h4>
                             </div>
                             <div className='meal-description'>

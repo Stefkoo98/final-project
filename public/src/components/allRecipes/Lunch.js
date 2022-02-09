@@ -4,6 +4,7 @@ import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
 import popUpArrow from '../../assets/icon_arrows_white.svg';
+import { PopUp } from '../popUp/PopUp';
 import './AllRecipes.css';
 
 
@@ -22,6 +23,22 @@ export function Lunch() {
             console.log(error);
         }
     }
+
+    const getRecipe = async (id) => {
+        try {
+            const res = await fetch(`/api/v1/recipes/get-one/${id}`, {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+            let data = await res.json();
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const saveLikes = async (recipeId, recipe) => {
         try {
