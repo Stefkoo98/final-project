@@ -1,10 +1,11 @@
 .pop-up {
     position: fixed;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(30px);
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
+    z-index: 100;
 }
 
 .pop-up-container {
@@ -15,8 +16,8 @@
     border: 1px solid #D8D8D8;
     border-radius: 5px;
     margin: 120px auto;
-    padding: 20px;
-    overflow: auto;
+    padding: 32px;
+    overflow: hidden;
     width: 1027px;
     height: 599px;
     box-shadow: 0px 10px 20px #00000012;
@@ -25,11 +26,10 @@
 .pop-up-header {
     display: flex;
     justify-content: space-between;
-    width: 960px;
-    height: 50px;
+    align-items: center;
 }
 
-.pop-up-header h2 {
+.pop-up-header h1 {
     width: 467px;
     height: 50px;
     color: #F0972A;
@@ -38,8 +38,8 @@
 
 .pop-up-header img {
     cursor: pointer;
-    width: 26px;
-    height: 27px;
+    width: 37px;
+    height: 37px;
 }
 
 .pop-up-section {
@@ -63,23 +63,34 @@
     border-radius: 5px;
 }   
 
-.best-served-for-title {
+.under-img-description {
     display: flex;
     justify-content: space-between;
-    margin: 21px 0px 16px 0px;
     width: 412px;
-    height: 26px;
 }
 
-.best-served-for-title h4 {
+.best-served-for-title {
     color: #96BB36;
     font-family: 'Roboto Slab', serif;
+    margin: 21px 0px 16px 0px;
+    font-size: 18px;
+}
+
+.recipe-category {
+    width: 80px;
+    height: 26px;
+    margin-top: 18px;
+    border-radius: 15px;
+    padding: 2px;
+    background: #96BB36;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
 }
 
 .short-paragraph {
     width: 412px;
     height: 126px;
-    margin-left: 1px;
     color: #A5A5A5;
     font-family: 'Roboto', sans-serif;
 }
@@ -88,6 +99,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 190px;
+    margin-top: 20px;
 }
 
 .gadgets img {
@@ -107,8 +120,16 @@
 }
 
 .recipe-details h4 {
-    color: #96BB36;
-    font-family: 'Roboto Slab', serif;
     width: 122px;
     height: 24px;
+    font-size: 18px;
+    color: #96BB36;
+    font-family: 'Roboto Slab', serif;
+}
+
+.recipe-details p {
+    margin: 15px 0px 0px 0px;
+    height: 436px;
+    color: #A5A5A5;
+    font-family: 'Roboto', sans-serif;
 }

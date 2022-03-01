@@ -4,8 +4,9 @@ import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
 import popUpArrow from '../../assets/icon_arrows_white.svg';
-import { PopUp } from '../popUp/PopUp';
-import './MainPage.css'
+import { Link } from 'react-router-dom';
+import './MainPage.css';
+
 
 export function FreshAndNew() {
 
@@ -93,6 +94,7 @@ export function FreshAndNew() {
             </div>
             <div className='meals-section' >
                 {meals.length > 0 && meals.slice(-3).map((meal, i) => {
+                    let recipeUrl = '/pop-up?id=' + meal._id;
                     return <>
                         <div className='meals-container' key={i} >
                             <div className='meal-img'>
@@ -112,11 +114,9 @@ export function FreshAndNew() {
                                         <h3 id='likescounter'>{meal.likes} </h3>
                                     </div>
                                     <div className='pop-up-arrow' onClick={togglePopUp}>
-                                        {openPopUp && <PopUp
-                                            closePopUp={togglePopUp}
-                                            id={meal._id}
-                                        />}
-                                        <img src={popUpArrow} alt='arrows' />
+                                        <Link to={recipeUrl}>
+                                            <img src={popUpArrow} alt='arrows' />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

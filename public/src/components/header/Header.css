@@ -24,6 +24,10 @@
     text-decoration: none;
 }
 
+.inline-list li a:hover {
+    color: orange;
+}
+
 .inline-list li:first-child {
     list-style-type: none;
     margin-left: 0px;
