@@ -91,6 +91,9 @@
 
 .tbody-section a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tbody-section a:nth-child(3) {
@@ -102,5 +105,4 @@
 .delete-icon {
     margin-right: 37px;
     height: 20px;
-    
 }

@@ -85,6 +85,7 @@
     overflow: hidden;
     resize: none;
     font-size: 14px;
+    word-wrap: break-word;
 }
 
 .meal-gadgets-container {

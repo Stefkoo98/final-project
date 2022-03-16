@@ -49,9 +49,9 @@ const recipeUpload = async (req, res) => {
     if (!fs.existsSync(userDirPath)) {
         fs.mkdirSync(userDirPath);
     }
-
-    let fileID = strings.makeID(6);
-    let fileName = `${fileID}_${req.files.document.name}`;
+    console.log(req.body)
+    let fileName = `${req.body.recipeId}.${req.files.document.mimetype.replace('image/jpeg', 'jpeg')}`;
+    console.log(fileName)
     let filePath = `${userDirPath}/${fileName}`;
     req.files.document.mv(filePath, err => {
         if (err) {
@@ -73,6 +73,17 @@ const download = async (req, res) => {
     res.download(filePath);
 };
 
+const downloadRecipe = async (req, res) => {
+    // let userDir = `avatar_${req.body.userUid}`;
+    let userDirPath = `${__dirname}/../../../${cfgApp.upload_dir}/recipes`;
+    let filePath = `${userDirPath}/${req.params.name}`;
+    console.log(filePath)
+    if (!fs.existsSync(filePath)) {
+        return res.status(404).send('Not Found');
+    }
+    res.download(filePath);
+};
+
 const getFileList = (req, res) => {
     res.send('ok');
 };
@@ -87,5 +98,6 @@ module.exports = {
     recipeUpload,
     download,
     getFileList,
-    removeFile
+    removeFile,
+    downloadRecipe
 };

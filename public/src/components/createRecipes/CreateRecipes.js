@@ -88,7 +88,7 @@ export function CreateRecipes() {
                 <div className='middle-div'>
                     <div className='recipe-title'>
                         <h4>Recipe Title</h4>
-                        <input placeholder='Homemade Pizza' name="recipe_title" value={recipesData.recipe_title} onChange={create} />
+                        <input placeholder='Enter your recipe' name="recipe_title" value={recipesData.recipe_title} onChange={create} />
                     </div>
                     <div className='three-divs-in-a-row'>
                         <div className='category'>
@@ -96,7 +96,13 @@ export function CreateRecipes() {
                                 <label>
                                     Category
                                 </label>
-                                <input placeholder='Breakfast' name="category" value={recipesData.category} onChange={create} />
+                                <select name='category' value={recipesData.category} onChange={create}>
+                                    <option>Choose</option>
+                                    <option>Breakfast</option>
+                                    <option>Brunch</option>
+                                    <option>Lunch</option>
+                                    <option>Dinner</option>
+                                </select>
                             </form>
                         </div>
                         <div className='prep-time'>
@@ -104,7 +110,7 @@ export function CreateRecipes() {
                                 <label>
                                     Preparation Time
                                 </label>
-                                <input placeholder='45' name="preparation_time" value={recipesData.preparation_time} onChange={create} />
+                                <input placeholder='Prep. Time' name="preparation_time" value={recipesData.preparation_time} onChange={create} />
                             </form>
                         </div>
                         <div className='numb-of-ppl'>
@@ -112,7 +118,7 @@ export function CreateRecipes() {
                                 <label>
                                     No.People
                                 </label>
-                                <input placeholder='4' value={recipesData.no_people} name="no_people" onChange={create} />
+                                <input placeholder='No.Ppl' value={recipesData.no_people} name="no_people" onChange={create} />
                             </form>
                         </div>
                     </div>

@@ -1,13 +1,20 @@
 .pop-up {
     position: fixed;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(10px);
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
     z-index: 100;
-}
+    }
 
+    .close-btn {
+        position: fixed;
+        left: 1400px;
+        top: 158px;
+        z-index: 1;
+    }
+    
 .pop-up-container {
     position: relative;
     width: 50%;
@@ -36,11 +43,7 @@
     font-family: 'Roboto Slab', serif;
 } 
 
-.pop-up-header img {
-    cursor: pointer;
-    width: 37px;
-    height: 37px;
-}
+
 
 .pop-up-section {
     display: flex;
@@ -93,6 +96,8 @@
     height: 126px;
     color: #A5A5A5;
     font-family: 'Roboto', sans-serif;
+    overflow: auto;
+    word-wrap: break-word;
 }
 
 .gadgets {
@@ -132,4 +137,5 @@
     height: 436px;
     color: #A5A5A5;
     font-family: 'Roboto', sans-serif;
+    word-wrap: break-word;
 }

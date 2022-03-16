@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import healthyMeal from '../../assets/healthy-meal.jpg';
+import foodImg from '../../assets/food.jpg';
 import stopWatch from '../../assets/icon_time.svg';
 import dinnerPlate from '../../assets/icon_plate.svg';
 import starLikes from '../../assets/icon_star.svg';
@@ -10,6 +10,9 @@ import './AllRecipes.css';
 export function Brunch() {
 
     const [meals, setMeals] = useState([]);
+    const [openPopUp, setOpenPopUp] = useState(false);
+    const [openPopUpId, setOpenPopUpId] = useState(null);
+
     const token = localStorage.getItem('jwt');
 
     const getRecipes = async () => {
@@ -70,6 +73,17 @@ export function Brunch() {
         }
     };
 
+    const togglePopUp = (id) => {
+
+        if (!openPopUp) {
+            setOpenPopUp(true)
+            setOpenPopUpId(id)
+        } else {
+            setOpenPopUp(false)
+            setOpenPopUpId(null)
+        }
+    }
+
     useEffect(() => {
         getRecipes()
     }, []);
@@ -83,9 +97,13 @@ export function Brunch() {
             <div className='meals-section'  >
                 {meals.length > 0 && meals.sort((min, max) => { return max.likes - min.likes }).map((meal, i) => {
                     return <>
+                        {openPopUp && meal._id === openPopUpId && <PopUp
+                            data={meal}
+                            handleClose={togglePopUp}
+                        />}
                         <div className='meals-container' key={i}>
                             <div className='meal-img'>
-                                <img src={healthyMeal} alt='meal' />
+                                <img src={foodImg} alt='meal' />
                                 <h4>{meal.category}</h4>
                             </div>
                             <div className='meal-description'>
@@ -101,7 +119,7 @@ export function Brunch() {
                                         <h3 id="likescounter">{meal.likes}</h3>
                                     </div>
                                     <div className='pop-up-arrow'>
-                                        <img src={popUpArrow} alt='arrows' />
+                                        <img src={popUpArrow} alt='arrows' onClick={() => togglePopUp(meal._id)} />
                                     </div>
                                 </div>
                             </div>
