@@ -33,7 +33,7 @@
     "db": {
         "username": "Dev",
         "dbname": "semosdb",
-        "password": "uYycauZ47Y6tW8pb",
-        "host": "cluster0.dknwn.mongodb.net"
+        "password": "",
+        "host": ""
     }
 }

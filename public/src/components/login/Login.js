@@ -30,7 +30,7 @@ export function Login() {
             let result = JSON.parse(response);
             localStorage.setItem('jwt', result.token);
             localStorage.setItem('id', result.id);
-            window.location.href = "/my-profile";
+            window.location.href = "/";
         } catch (err) {
             console.error(err);
         }

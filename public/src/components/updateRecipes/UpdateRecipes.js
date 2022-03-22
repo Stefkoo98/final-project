@@ -25,6 +25,10 @@ export function UpdateRecipes() {
         setRecipesData({ ...recipesData, [e.target.name]: e.target.value });
     }
 
+    const create = (e) => {
+        setRecipesData({ ...recipesData, [e.target.name]: e.target.value });
+    }
+
     const getRecipeData = async () => {
         try {
             let res = await fetch(
@@ -121,7 +125,13 @@ export function UpdateRecipes() {
                                 <label>
                                     Category
                                 </label>
-                                <input placeholder='Breakfast' name="category" value={recipesData.category} onChange={updateRecipeData} />
+                                <select name='category' value={recipesData.category} onChange={create}>
+                                    <option>Choose</option>
+                                    <option>Breakfast</option>
+                                    <option>Brunch</option>
+                                    <option>Lunch</option>
+                                    <option>Dinner</option>
+                                </select>
                             </form>
                         </div>
                         <div className='prep-time'>

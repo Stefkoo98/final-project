@@ -54,22 +54,22 @@ export function CreateAccount() {
                             <label>
                                 First Name
                             </label>
-                            <input type="text" name='first_name' placeholder='John' onChange={createAccountFieldUpdate} defaultValue={createAccountData.first_name} />
+                            <input type="text" name='first_name' placeholder='First Name' onChange={createAccountFieldUpdate} defaultValue={createAccountData.first_name} />
                             <label>
                                 Email
                             </label>
-                            <input type='email' name='email' placeholder='john@smith.com' onChange={createAccountFieldUpdate} defaultValue={createAccountData.email} />
+                            <input type='email' name='email' placeholder='Email' onChange={createAccountFieldUpdate} defaultValue={createAccountData.email} />
                             <label>
                                 Password
                             </label>
-                            <input type='password' name='password' placeholder='******' onChange={createAccountFieldUpdate} defaultValue={createAccountData.password} />
+                            <input type='password' name='password' placeholder='Enter Password' onChange={createAccountFieldUpdate} defaultValue={createAccountData.password} />
                             <button onClick={createAccountBtn}>Create Account</button>
                         </div>
                         <div>
                             <label>
                                 Last Name
                             </label>
-                            <input type='text' name='last_name' placeholder='Smith' onChange={createAccountFieldUpdate} defaultValue={createAccountData.last_name} />
+                            <input type='text' name='last_name' placeholder='Last Name' onChange={createAccountFieldUpdate} defaultValue={createAccountData.last_name} />
                             <label>
                                 Birthday
                             </label>
@@ -77,7 +77,7 @@ export function CreateAccount() {
                             <label>
                                 Repeat Password
                             </label>
-                            <input type='password' name='repeat_password' placeholder='******' onChange={createAccountFieldUpdate} defaultValue={createAccountData.repeat_password} />
+                            <input type='password' name='repeat_password' placeholder='Enter Password' onChange={createAccountFieldUpdate} defaultValue={createAccountData.repeat_password} />
                         </div>
                     </form>
                 </div>
